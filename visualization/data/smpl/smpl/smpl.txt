@@ -1,0 +1,8 @@
+Once you have downloaded the SMPL model, place it here like below.
+
+data
+|_smpl
+    |_smpl
+        |_SMPL_FEMALE.pkl
+        |_SMPL_MALE.pkl
+        |_SMPL_NEUTRAL.pkl
