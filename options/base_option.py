@@ -10,22 +10,22 @@ class BaseOptions():
     def initialize(self):
         self.parser.add_argument('--name', type=str, default="t2m_nlayer8_nhead6_ld384_ff1024_cdp0.1_rvq6ns", help='Name of this trial')
 
-        self.parser.add_argument('--vq_name', type=str, default="rvq_nq1_dc512_nc512", help='Name of this trial')
+        self.parser.add_argument('--vq_name', type=str, default="rvq_nq1_dc512_nc512", help='Name of the rvq model.')
 
         self.parser.add_argument("--gpu_id", type=int, default=-1, help='GPU id')
-        self.parser.add_argument('--dataset_name', type=str, default='t2m', help='Dataset Name')
-        self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
+        self.parser.add_argument('--dataset_name', type=str, default='t2m', help='Dataset Name, {t2m} for humanml3d, {kit} for kit-ml')
+        self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here.')
 
-        self.parser.add_argument('--latent_dim', type=int, default=384, help='Dimension of hidden unit in GRU')
-        self.parser.add_argument('--n_heads', type=int, default=6, help='Dimension of hidden unit in GRU')
-        self.parser.add_argument('--n_layers', type=int, default=8, help='Dimension of hidden unit in GRU')
-        self.parser.add_argument('--ff_size', type=int, default=1024, help='Dimension of hidden unit in GRU')
-        self.parser.add_argument('--dropout', type=float, default=0.2, help='Dimension of hidden unit in GRU')
+        self.parser.add_argument('--latent_dim', type=int, default=384, help='Dimension of transformer latent.')
+        self.parser.add_argument('--n_heads', type=int, default=6, help='Number of heads.')
+        self.parser.add_argument('--n_layers', type=int, default=8, help='Number of attention layers.')
+        self.parser.add_argument('--ff_size', type=int, default=1024, help='FF_Size')
+        self.parser.add_argument('--dropout', type=float, default=0.2, help='Dropout ratio in transformer')
 
-        self.parser.add_argument("--max_motion_length", type=int, default=196, help="Length of motion")
-        self.parser.add_argument("--unit_length", type=int, default=4, help="Length of motion")
+        self.parser.add_argument("--max_motion_length", type=int, default=196, help="Max length of motion")
+        self.parser.add_argument("--unit_length", type=int, default=4, help="Downscale ratio of VQ")
 
-        self.parser.add_argument('--force_mask', action="store_true", help='Training iterations')
+        self.parser.add_argument('--force_mask', action="store_true", help='True: mask out conditions')
 
         self.initialized = True
 

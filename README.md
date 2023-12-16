@@ -3,7 +3,7 @@
 ![teaser_image](https://ericguo5513.github.io/momask/static/images/teaser.png)
 
 ## :postbox: News
-📢 **2023-12-15** --- Release code for text2motion generation.  
+📢 **2023-12-15** --- Release codes and models for momask. Including training/eval/generation scripts.
 
 📢 **2023-11-29** --- Initialized the webpage and git project.  
 
@@ -61,7 +61,7 @@ cp -r ../HumanML3D/HumanML3D ./dataset/HumanML3D
 
 ### (a) Generate from a single prompt
 ```
-python gen_t2m.py --gpu_id 1 --ext exp1 --text_prompt "A person is sitting on a chair"
+python gen_t2m.py --gpu_id 1 --ext exp1 --text_prompt "A person is running on a treadmill."
 ```
 ### (b) Generate from a prompt file
 An example of prompt file is given in `./assets/text_prompt.txt`. Please follow the format of `<text description>#<motion length>` at each line. Motion length indicates the number of poses, which must be integeter and will be rounded by 4. In our work, motion is in 20 fps.
@@ -74,7 +74,7 @@ python gen_t2m.py --gpu_id 1 --ext exp2 --text_path ./assets/text_prompt.txt
 
 
 A few more parameters you may be interested:
-* `--repeat_times`: number of replications for generation
+* `--repeat_times`: number of replications for generation, default `1`.
 * `--motion_length`: specify the number of poses for generation, only applicable in (a).
 
 The output files are stored under folder `./generation/<ext>/`. They are
@@ -186,5 +186,27 @@ The final evaluation results will be saved in `./checkpoints/<dataset_name>/<nam
 
 </details>
 
+## Citation
+
+If you find our code or paper helpful, please consider citing:
+```
+@article{guo2023momask,
+      title={MoMask: Generative Masked Modeling of 3D Human Motions}, 
+      author={Chuan Guo and Yuxuan Mu and Muhammad Gohar Javed and Sen Wang and Li Cheng},
+      year={2023},
+      eprint={2312.00063},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
 ## Acknowlegements
-To be continued.
+
+We sincerely thank the open-sourcing of these works where our code is based on: 
+
+[deep-motion-editing](https://github.com/DeepMotionEditing/deep-motion-editing), [Muse](https://github.com/lucidrains/muse-maskgit-pytorch), [vector-quantize-pytorch](https://github.com/lucidrains/vector-quantize-pytorch), [T2M-GPT](https://github.com/Mael-zys/T2M-GPT), [MDM](https://github.com/GuyTevet/motion-diffusion-model/tree/main) and [MLD](https://github.com/ChenFengYe/motion-latent-diffusion/tree/main)
+
+## License
+This code is distributed under an [MIT LICENSE](https://github.com/EricGuo5513/momask-codes/tree/main?tab=MIT-1-ov-file#readme).
+
+Note that our code depends on other libraries, including SMPL, SMPL-X, PyTorch3D, and uses datasets which each have their own respective licenses that must also be followed.
