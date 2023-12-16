@@ -8,7 +8,7 @@ class BaseOptions():
         self.initialized = False
 
     def initialize(self):
-        self.parser.add_argument('--name', type=str, default="test", help='Name of this trial')
+        self.parser.add_argument('--name', type=str, default="t2m_nlayer8_nhead6_ld384_ff1024_cdp0.1_rvq6ns", help='Name of this trial')
 
         self.parser.add_argument('--vq_name', type=str, default="rvq_nq1_dc512_nc512", help='Name of this trial')
 

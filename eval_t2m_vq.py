@@ -3,7 +3,7 @@ import os
 from os.path import join as pjoin
 
 import torch
-from models.vq.model import RVQVAE, HVQVAE
+from models.vq.model import RVQVAE
 from options.vq_option import arg_parse
 from motion_loaders.dataset_motion_loader import get_dataset_motion_loader
 import utils.eval_t2m as eval_t2m
