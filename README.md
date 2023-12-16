@@ -2,6 +2,18 @@
 ## [[Project Page]](https://ericguo5513.github.io/momask) [[Paper]](https://arxiv.org/abs/2312.00063)
 ![teaser_image](https://ericguo5513.github.io/momask/static/images/teaser.png)
 
+If you find our code or paper helpful, please consider citing:
+```
+@article{guo2023momask,
+      title={MoMask: Generative Masked Modeling of 3D Human Motions}, 
+      author={Chuan Guo and Yuxuan Mu and Muhammad Gohar Javed and Sen Wang and Li Cheng},
+      year={2023},
+      eprint={2312.00063},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
 ## :postbox: News
 📢 **2023-12-15** --- Release codes and models for momask. Including training/eval/generation scripts.
 
@@ -185,20 +197,6 @@ python eval_t2m_trans_res.py --res_name tres_nlayer8_ld384_ff1024_rvq6ns_cdp0.2_
 The final evaluation results will be saved in `./checkpoints/<dataset_name>/<name>/eval/<ext>.log`
 
 </details>
-
-## Citation
-
-If you find our code or paper helpful, please consider citing:
-```
-@article{guo2023momask,
-      title={MoMask: Generative Masked Modeling of 3D Human Motions}, 
-      author={Chuan Guo and Yuxuan Mu and Muhammad Gohar Javed and Sen Wang and Li Cheng},
-      year={2023},
-      eprint={2312.00063},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
 
 ## Acknowlegements
 
