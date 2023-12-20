@@ -15,6 +15,8 @@ If you find our code or paper helpful, please consider citing:
 ```
 
 ## :postbox: News
+📢 **2023-12-19** --- Release scripts for temporal inpainting.
+
 📢 **2023-12-15** --- Release codes and models for momask. Including training/eval/generation scripts.
 
 📢 **2023-11-29** --- Initialized the webpage and git project.  
@@ -46,6 +48,9 @@ For evaluation only.
 bash prepare/download_evaluator.sh
 bash prepare/download_glove.sh
 ```
+
+#### Troubleshooting
+To address the download error related to gdown: "Cannot retrieve the public link of the file. You may need to change the permission to 'Anyone with the link', or have had many accesses". A potential solution is to run `pip install --upgrade --no-cache-dir gdown`, as suggested on https://github.com/wkentaro/gdown/issues/43. This should help resolve the issue.
 
 #### (Optional) Download Mannually
 Visit [[Google Drive]](https://drive.google.com/drive/folders/1b3GnAbERH8jAoO5mdWgZhyxHB73n23sK?usp=drive_link) to download the models and evaluators mannually.
@@ -126,8 +131,11 @@ We use this [scene](https://drive.google.com/file/d/1lg62nugD7RTAIz0Q_YP2iZsxpUz
 
 ## :clapper: Temporal Inpainting
 <details>
+We conduct mask-based editing in the m-transformer stage, followed by the regeneration of residual tokens for the entire sequence. To load your own motion, provide the path through `--source_motion`. Utilize `-msec` to specify the mask section, supporting either ratio or frame index. For instance, `-msec 0.3,0.6` with `max_motion_length=196` is equivalent to `-msec 59,118`, indicating the editing of the frame section [59, 118].
 
-To be continuted.
+```
+python edit_t2m.py --gpu_id 1 --ext exp3 --use_res_model -msec 0.4,0.7 --text_prompt "A man picks something from the ground using his right hand."
+```
 </details>
 
 ## :space_invader: Train Your Own Models
