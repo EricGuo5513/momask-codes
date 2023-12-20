@@ -21,11 +21,12 @@ from utils.plot_script import plot_3d_motion
 from utils.paramUtil import t2m_kinematic_chain
 
 import numpy as np
+clip_version = 'ViT-B/32'
 
 def load_vq_model(vq_opt):
     # opt_path = pjoin(opt.checkpoints_dir, opt.dataset_name, opt.vq_name, 'opt.txt')
     vq_model = RVQVAE(vq_opt,
-                dim_pose,
+                vq_opt.dim_pose,
                 vq_opt.nb_code,
                 vq_opt.code_dim,
                 vq_opt.output_emb_width,
@@ -43,7 +44,7 @@ def load_vq_model(vq_opt):
     print(f'Loading VQ Model {vq_opt.name} Completed!')
     return vq_model, vq_opt
 
-def load_trans_model(model_opt, which_model):
+def load_trans_model(model_opt, opt, which_model):
     t2m_transformer = MaskTransformer(code_dim=model_opt.code_dim,
                                       cond_mode='text',
                                       latent_dim=model_opt.latent_dim,
@@ -65,7 +66,7 @@ def load_trans_model(model_opt, which_model):
     print(f'Loading Transformer {opt.name} from epoch {ckpt["ep"]}!')
     return t2m_transformer
 
-def load_res_model(res_opt):
+def load_res_model(res_opt, vq_opt, opt):
     res_opt.num_quantizers = vq_opt.num_quantizers
     res_opt.num_tokens = vq_opt.nb_code
     res_transformer = ResidualTransformer(code_dim=vq_opt.code_dim,
@@ -121,13 +122,14 @@ if __name__ == '__main__':
 
     model_opt_path = pjoin(root_dir, 'opt.txt')
     model_opt = get_opt(model_opt_path, device=opt.device)
-    clip_version = 'ViT-B/32'
+
 
     #######################
     ######Loading RVQ######
     #######################
     vq_opt_path = pjoin(opt.checkpoints_dir, opt.dataset_name, model_opt.vq_name, 'opt.txt')
     vq_opt = get_opt(vq_opt_path, device=opt.device)
+    vq_opt.dim_pose = dim_pose
     vq_model, vq_opt = load_vq_model(vq_opt)
 
     model_opt.num_tokens = vq_opt.nb_code
@@ -139,18 +141,18 @@ if __name__ == '__main__':
     #################################
     res_opt_path = pjoin(opt.checkpoints_dir, opt.dataset_name, opt.res_name, 'opt.txt')
     res_opt = get_opt(res_opt_path, device=opt.device)
-    res_model = load_res_model(res_opt)
+    res_model = load_res_model(res_opt, vq_opt, opt)
 
     assert res_opt.vq_name == model_opt.vq_name
 
     #################################
     ######Loading M-Transformer######
     #################################
-    t2m_transformer = load_trans_model(model_opt, 'latest.tar')
+    t2m_transformer = load_trans_model(model_opt, opt, 'latest.tar')
 
-    #################################
-    ######Loading M-Transformer######
-    #################################
+    ##################################
+    #####Loading Length Predictor#####
+    ##################################
     length_estimator = load_len_estimator(model_opt)
 
     t2m_transformer.eval()
