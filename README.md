@@ -131,11 +131,14 @@ We use this [scene](https://drive.google.com/file/d/1lg62nugD7RTAIz0Q_YP2iZsxpUz
 
 ## :clapper: Temporal Inpainting
 <details>
-We conduct mask-based editing in the m-transformer stage, followed by the regeneration of residual tokens for the entire sequence. To load your own motion, provide the path through `--source_motion`. Utilize `-msec` to specify the mask section, supporting either ratio or frame index. For instance, `-msec 0.3,0.6` with `max_motion_length=196` is equivalent to `-msec 59,118`, indicating the editing of the frame section [59, 118].
+We conduct mask-based editing in the m-transformer stage, followed by the regeneration of residual tokens for the entire sequence. To load your own motion, provide the path through `--source_motion`. Utilize `-msec` to specify the mask section, supporting either ratio or frame index. For instance, `-msec 0.3,0.6` with `max_motion_length=196` is equivalent to `-msec 59,118`, indicating the editing of the frame section [59, 118]. 
 
 ```
 python edit_t2m.py --gpu_id 1 --ext exp3 --use_res_model -msec 0.4,0.7 --text_prompt "A man picks something from the ground using his right hand."
 ```
+
+Note: Presently, the source motion must adhere to the format of a HumanML3D dim-263 feature vector. An example motion vector data from the HumanML3D test set is available in `example_data/000612.npy`. To process your own motion data, you can utilize the `process_file` function from `utils/motion_process.py`.
+
 </details>
 
 ## :space_invader: Train Your Own Models
