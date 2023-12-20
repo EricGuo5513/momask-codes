@@ -148,9 +148,9 @@ if __name__ == '__main__':
     #################################
     t2m_transformer = load_trans_model(model_opt, 'latest.tar')
 
-    #################################
-    ######Loading M-Transformer######
-    #################################
+    ##################################
+    #####Loading Length Predictor#####
+    ##################################
     length_estimator = load_len_estimator(model_opt)
 
     t2m_transformer.eval()
