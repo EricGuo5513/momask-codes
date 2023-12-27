@@ -15,6 +15,8 @@ If you find our code or paper helpful, please consider citing:
 ```
 
 ## :postbox: News
+📢 **2023-12-27** --- Release WebUI demo. Quickly try our work on [🤗HuggingFace](https://huggingface.co/spaces/MeYourHint/MoMask).
+
 📢 **2023-12-19** --- Release scripts for temporal inpainting.
 
 📢 **2023-12-15** --- Release codes and models for momask. Including training/eval/generation scripts.
