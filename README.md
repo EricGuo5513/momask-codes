@@ -1,5 +1,5 @@
 # MoMask: Generative Masked Modeling of 3D Human Motions
-## [[Project Page]](https://ericguo5513.github.io/momask) [[Paper]](https://arxiv.org/abs/2312.00063) [[Huggingface Demo]](https://huggingface.co/spaces/MeYourHint/MoMask)
+### [[Project Page]](https://ericguo5513.github.io/momask) [[Paper]](https://arxiv.org/abs/2312.00063) [[Huggingface Demo]](https://huggingface.co/spaces/MeYourHint/MoMask) [[Colab Demo]](https://github.com/camenduru/MoMask-colab)
 ![teaser_image](https://ericguo5513.github.io/momask/static/images/teaser.png)
 
 If you find our code or paper helpful, please consider citing:
@@ -15,6 +15,8 @@ If you find our code or paper helpful, please consider citing:
 ```
 
 ## :postbox: News
+📢 **2023-12-29** --- Thanks to Camenduru for supporting the [🤗Colab](https://github.com/camenduru/MoMask-colab) demo.
+
 📢 **2023-12-27** --- Release WebUI demo. Quickly try our work on [🤗HuggingFace](https://huggingface.co/spaces/MeYourHint/MoMask).
 
 📢 **2023-12-19** --- Release scripts for temporal inpainting.
