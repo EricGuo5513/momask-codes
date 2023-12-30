@@ -15,7 +15,7 @@ If you find our code or paper helpful, please consider citing:
 ```
 
 ## :postbox: News
-📢 **2023-12-30** --- For quick BVH visulization, you could try this useful website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
+📢 **2023-12-30** --- For easy webUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
 
 📢 **2023-12-29** --- Thanks to Camenduru for supporting the [🤗Colab](https://github.com/camenduru/MoMask-colab) demo.
 
