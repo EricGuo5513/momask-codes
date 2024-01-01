@@ -15,11 +15,11 @@ If you find our code or paper helpful, please consider citing:
 ```
 
 ## :postbox: News
-📢 **2023-12-30** --- For easy webUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
+📢 **2023-12-30** --- For easy WebUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
 
 📢 **2023-12-29** --- Thanks to Camenduru for supporting the [🤗Colab](https://github.com/camenduru/MoMask-colab) demo.
 
-📢 **2023-12-27** --- Release WebUI demo. Quickly try our work on [🤗HuggingFace](https://huggingface.co/spaces/MeYourHint/MoMask).
+📢 **2023-12-27** --- Release WebUI demo. Try now on [🤗HuggingFace](https://huggingface.co/spaces/MeYourHint/MoMask)!
 
 📢 **2023-12-19** --- Release scripts for temporal inpainting.
 
