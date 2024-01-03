@@ -163,7 +163,7 @@ Note: Presently, the source motion must adhere to the format of a HumanML3D dim-
 
 ### Train RVQ
 ```
-python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 512 --num_quantizers 6  --max_epoch 500 --quantize_drop_prob 0.2
+python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 256 --num_quantizers 6  --max_epoch 50 --quantize_drop_prob 0.2
 ```
 
 ### Train Masked Transformer
