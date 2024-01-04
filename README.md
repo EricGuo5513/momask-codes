@@ -15,11 +15,11 @@ If you find our code or paper helpful, please consider citing:
 ```
 
 ## :postbox: News
-📢 **2023-12-30** --- For easy webUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
+📢 **2023-12-30** --- For easy WebUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
 
 📢 **2023-12-29** --- Thanks to Camenduru for supporting the [🤗Colab](https://github.com/camenduru/MoMask-colab) demo.
 
-📢 **2023-12-27** --- Release WebUI demo. Quickly try our work on [🤗HuggingFace](https://huggingface.co/spaces/MeYourHint/MoMask).
+📢 **2023-12-27** --- Release WebUI demo. Try now on [🤗HuggingFace](https://huggingface.co/spaces/MeYourHint/MoMask)!
 
 📢 **2023-12-19** --- Release scripts for temporal inpainting.
 
@@ -166,7 +166,7 @@ Note: Presently, the source motion must adhere to the format of a HumanML3D dim-
 ### Train RVQ
 You may also need to download evaluation models to run the scripts.
 ```
-python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 512 --num_quantizers 6  --max_epoch 500 --quantize_drop_prob 0.2
+python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 256 --num_quantizers 6  --max_epoch 50 --quantize_drop_prob 0.2
 ```
 
 ### Train Masked Transformer
