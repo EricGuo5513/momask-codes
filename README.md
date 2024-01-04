@@ -47,6 +47,8 @@ We provide an alternative pip installation in case you encounter difficulties se
 ```
 pip install -r requirements.txt
 ```
+We test this installation on Python 3.10
+
 </details>
 
 ### 2. Models and Dependencies
@@ -162,6 +164,7 @@ Note: Presently, the source motion must adhere to the format of a HumanML3D dim-
 **Note**: You have to train RVQ **BEFORE** training masked/residual transformers. The latter two can be trained simultaneously.
 
 ### Train RVQ
+You may also need to download evaluation models to run the scripts.
 ```
 python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 512 --num_quantizers 6  --max_epoch 500 --quantize_drop_prob 0.2
 ```
