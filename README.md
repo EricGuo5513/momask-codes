@@ -132,7 +132,7 @@ Following these steps:
 * Import both the motion files (.bvh) and character files (.fbx) in blender.
 * `Shift + Select` the both source and target skeleton. (Do not need to be Rest Position)
 * Switch to `Pose Mode`, then unfold the `KeeMapRig` tool at the top-right corner of the view window.
-* For bone mapping file, direct to `./assets/mapping.json`(or `mapping6.json` if it doesn't work), and click `Read In Bone Mapping File`. This file is manually made by us. It works for most characters in mixamo.
+* For `bone mapping file`, direct to `./assets/mapping.json`(or `mapping6.json` if it doesn't work), and click `Read In Bone Mapping File`. This file is manually made by us. It works for most characters in mixamo.
 * (Optional) You could manually fill in the bone mapping and adjust the rotations by your own, for your own character. `Save Bone Mapping File` can save the mapping configuration in local file, as specified by the mapping file path.
 * Adjust the `Number of Samples`, `Source Rig`, `Destination Rig Name`.
 * Clik `Transfer Animation from Source Destination`, wait a few seconds.
