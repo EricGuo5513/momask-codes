@@ -2,7 +2,7 @@
 ### [[Project Page]](https://ericguo5513.github.io/momask) [[Paper]](https://arxiv.org/abs/2312.00063) [[Huggingface Demo]](https://huggingface.co/spaces/MeYourHint/MoMask) [[Colab Demo]](https://github.com/camenduru/MoMask-colab)
 ![teaser_image](https://ericguo5513.github.io/momask/static/images/teaser.png)
 
-If you find our code or paper helpful, please consider citing:
+If you find our code or paper helpful, please consider starring our repository and citing:
 ```
 @article{guo2023momask,
       title={MoMask: Generative Masked Modeling of 3D Human Motions}, 
