@@ -15,6 +15,8 @@ If you find our code or paper helpful, please consider starring our repository a
 ```
 
 ## :postbox: News
+📢 **2024-01-12** --- Now you can use MoMask in Blender as an add-on. Thanks to [@makeinufilm](https://twitter.com/makeinufilm) for sharing the [tutorial](https://note.com/makeinufilm/n/nfe271a0aa1ea?sub_rt=share_pb).
+
 📢 **2023-12-30** --- For easy WebUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
 
 📢 **2023-12-29** --- Thanks to Camenduru for supporting the [🤗Colab](https://github.com/camenduru/MoMask-colab) demo.
