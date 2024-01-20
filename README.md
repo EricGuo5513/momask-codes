@@ -239,3 +239,6 @@ We sincerely thank the open-sourcing of these works where our code is based on:
 This code is distributed under an [MIT LICENSE](https://github.com/EricGuo5513/momask-codes/tree/main?tab=MIT-1-ov-file#readme).
 
 Note that our code depends on other libraries, including SMPL, SMPL-X, PyTorch3D, and uses datasets which each have their own respective licenses that must also be followed.
+
+### Misc
+Contact cguo2@ualberta.ca for further questions.
