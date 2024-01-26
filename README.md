@@ -224,6 +224,7 @@ python eval_t2m_trans_res.py --res_name tres_nlayer8_ld384_ff1024_rvq6ns_cdp0.2_
 * `--cond_scale`: scale of classifer-free guidance.
 * `--time_steps`: number of iterations for inference.
 * `--ext`: filename for saving evaluation results.
+* `--which_epoch`: checkpoint name of `masked transformer`.
 
 The final evaluation results will be saved in `./checkpoints/<dataset_name>/<name>/eval/<ext>.log`
 
