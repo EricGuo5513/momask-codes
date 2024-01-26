@@ -3,7 +3,7 @@ from options.base_option import BaseOptions
 class EvalT2MOptions(BaseOptions):
     def initialize(self):
         BaseOptions.initialize(self)
-        self.parser.add_argument('--which_epoch', type=str, default="all", help='Checkpoint you want to use, {latest, net_best_fid, etc}')
+        self.parser.add_argument('--which_epoch', type=str, default="latest", help='Checkpoint you want to use, {latest, net_best_fid, etc}')
         self.parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
 
         self.parser.add_argument('--ext', type=str, default='text2motion', help='Extension of the result file or folder')
