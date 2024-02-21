@@ -169,7 +169,7 @@ Note: Presently, the source motion must adhere to the format of a HumanML3D dim-
 ### Train RVQ
 You may also need to download evaluation models to run the scripts.
 ```
-python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 256 --num_quantizers 6  --max_epoch 50 --quantize_drop_prob 0.2
+python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 256 --num_quantizers 6  --max_epoch 50 --quantize_dropout_prob 0.2 --gamma 0.05
 ```
 
 ### Train Masked Transformer
