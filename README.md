@@ -1,4 +1,4 @@
-# MoMask: Generative Masked Modeling of 3D Human Motions
+# MoMask: Generative Masked Modeling of 3D Human Motions (CVPR 2024)
 ### [[Project Page]](https://ericguo5513.github.io/momask) [[Paper]](https://arxiv.org/abs/2312.00063) [[Huggingface Demo]](https://huggingface.co/spaces/MeYourHint/MoMask) [[Colab Demo]](https://github.com/camenduru/MoMask-colab)
 ![teaser_image](https://ericguo5513.github.io/momask/static/images/teaser.png)
 
