@@ -525,10 +525,10 @@ class MaskTransformer(nn.Module):
                 pred_ids = gumbel_sample(filtered_logits, temperature=temperature, dim=-1)  # (b, seqlen)
             else:  # use multinomial sampling
                 # print("2222")
-                probs = F.softmax(filtered_logits, dim=-1)  # (b, seqlen, ntoken)
+                probs = F.softmax(filtered_logits / temperature, dim=-1)  # (b, seqlen, ntoken)
                 # print(temperature, starting_temperature, steps_until_x0, timesteps)
                 # print(probs / temperature)
-                pred_ids = Categorical(probs / temperature).sample()  # (b, seqlen)
+                pred_ids = Categorical(probs).sample()  # (b, seqlen)
 
             # print(pred_ids.max(), pred_ids.min())
             # if pred_ids.
