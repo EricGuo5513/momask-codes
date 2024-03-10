@@ -61,8 +61,8 @@ def arg_parse(is_train=False):
 
     ## For Res Predictor only
     parser.add_argument('--vq_name', type=str, default="rvq_nq6_dc512_nc512_noshare_qdp0.2", help='Name of this trial')
-    parser.add_argument('--n_res', type=int, default=2, help='Name of this trial')
-    parser.add_argument('--do_vq_res', action="store_true")
+    # parser.add_argument('--n_res', type=int, default=2, help='Name of this trial')
+    # parser.add_argument('--do_vq_res', action="store_true")
     parser.add_argument("--seed", default=3407, type=int)
 
     opt = parser.parse_args()

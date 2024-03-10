@@ -10,7 +10,7 @@ import torch.optim as optim
 import time
 import numpy as np
 from collections import OrderedDict, defaultdict
-from utils.eval_t2m import evaluation_vqvae, evaluation_res_conv
+from utils.eval_t2m import evaluation_vqvae
 from utils.utils import print_current_loss
 
 import os

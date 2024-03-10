@@ -1,4 +1,4 @@
-# MoMask: Generative Masked Modeling of 3D Human Motions
+# MoMask: Generative Masked Modeling of 3D Human Motions (CVPR 2024)
 ### [[Project Page]](https://ericguo5513.github.io/momask) [[Paper]](https://arxiv.org/abs/2312.00063) [[Huggingface Demo]](https://huggingface.co/spaces/MeYourHint/MoMask) [[Colab Demo]](https://github.com/camenduru/MoMask-colab)
 ![teaser_image](https://ericguo5513.github.io/momask/static/images/teaser.png)
 
@@ -15,6 +15,8 @@ If you find our code or paper helpful, please consider starring our repository a
 ```
 
 ## :postbox: News
+📢 **2024-02-26** --- 🔥🔥🔥 Congrats! MoMask is accepted to CVPR 2024.
+
 📢 **2024-01-12** --- Now you can use MoMask in Blender as an add-on. Thanks to [@makeinufilm](https://twitter.com/makeinufilm) for sharing the [tutorial](https://medium.com/@makeinufilm/notes-on-how-to-set-up-the-momask-environment-and-how-to-use-blenderaddon-6563f1abdbfa).
 
 📢 **2023-12-30** --- For easy WebUI BVH visulization, you could try this website [bvh2vrma](https://vrm-c.github.io/bvh2vrma/) from this [github](https://github.com/vrm-c/bvh2vrma?tab=readme-ov-file).
@@ -169,7 +171,7 @@ Note: Presently, the source motion must adhere to the format of a HumanML3D dim-
 ### Train RVQ
 You may also need to download evaluation models to run the scripts.
 ```
-python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 256 --num_quantizers 6  --max_epoch 50 --quantize_drop_prob 0.2
+python train_vq.py --name rvq_name --gpu_id 1 --dataset_name t2m --batch_size 256 --num_quantizers 6  --max_epoch 50 --quantize_dropout_prob 0.2 --gamma 0.05
 ```
 
 ### Train Masked Transformer
