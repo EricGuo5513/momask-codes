@@ -245,3 +245,7 @@ Note that our code depends on other libraries, including SMPL, SMPL-X, PyTorch3D
 
 ### Misc
 Contact cguo2@ualberta.ca for further questions.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=EricGuo5513/momask-codes&type=Date)](https://star-history.com/#EricGuo5513/momask-codes&Date)
