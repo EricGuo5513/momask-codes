@@ -17,6 +17,7 @@ from motion_loaders.dataset_motion_loader import get_dataset_motion_loader
 
 from utils.motion_process import recover_from_ric
 from utils.plot_script import plot_3d_motion
+from utils.fixseed import fixseed
 
 os.environ["OMP_NUM_THREADS"] = "1"
 
@@ -32,6 +33,7 @@ def plot_t2m(data, save_dir):
 if __name__ == "__main__":
     # torch.autograd.set_detect_anomaly(True)
     opt = arg_parse(True)
+    fixseed(opt.seed)
 
     opt.device = torch.device("cpu" if opt.gpu_id == -1 else "cuda:" + str(opt.gpu_id))
     print(f"Using Device: {opt.device}")
