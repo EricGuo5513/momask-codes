@@ -113,7 +113,7 @@ if __name__ == "__main__":
                               shuffle=True, pin_memory=True)
     val_loader = DataLoader(val_dataset, batch_size=opt.batch_size, drop_last=True, num_workers=4,
                             shuffle=True, pin_memory=True)
-    eval_val_loader, _ = get_dataset_motion_loader(dataset_opt_path, 32, 'test', device=opt.device)
+    eval_val_loader, _ = get_dataset_motion_loader(dataset_opt_path, 32, 'val', device=opt.device)
     trainer.train(train_loader, val_loader, eval_val_loader, eval_wrapper, plot_t2m)
 
 ## train_vq.py --dataset_name kit --batch_size 512 --name VQVAE_dp2 --gpu_id 3
