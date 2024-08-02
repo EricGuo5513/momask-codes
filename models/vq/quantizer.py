@@ -44,7 +44,7 @@ class QuantizeEMAReset(nn.Module):
         self.init = False
         self.code_sum = None
         self.code_count = None
-        self.register_buffer('codebook', torch.zeros(self.nb_code, self.code_dim, requires_grad=False).cuda())
+        self.register_buffer('codebook', torch.zeros(self.nb_code, self.code_dim, requires_grad=False))
 
     def _tile(self, x):
         nb_code_x, code_dim = x.shape

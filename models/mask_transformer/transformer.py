@@ -178,10 +178,11 @@ class MaskTransformer(nn.Module):
     def load_and_freeze_clip(self, clip_version):
         clip_model, clip_preprocess = clip.load(clip_version, device='cpu',
                                                 jit=False)  # Must set jit=False for training
-        # Cannot run on cpu
-        clip.model.convert_weights(
-            clip_model)  # Actually this line is unnecessary since clip by default already on float16
-        # Date 0707: It's necessary, only unecessary when load directly to gpu. Disable if need to run on cpu
+        # Added support for cpu
+        if str(self.opt.device) != "cpu":
+            clip.model.convert_weights(
+                clip_model)  # Actually this line is unnecessary since clip by default already on float16
+            # Date 0707: It's necessary, only unecessary when load directly to gpu. Disable if need to run on cpu
 
         # Freeze CLIP weights
         clip_model.eval()
@@ -730,10 +731,11 @@ class ResidualTransformer(nn.Module):
     def load_and_freeze_clip(self, clip_version):
         clip_model, clip_preprocess = clip.load(clip_version, device='cpu',
                                                 jit=False)  # Must set jit=False for training
-        # Cannot run on cpu
-        clip.model.convert_weights(
-            clip_model)  # Actually this line is unnecessary since clip by default already on float16
-        # Date 0707: It's necessary, only unecessary when load directly to gpu. Disable if need to run on cpu
+        # Added support for cpu
+        if str(self.opt.device) != "cpu":
+            clip.model.convert_weights(
+                clip_model)  # Actually this line is unnecessary since clip by default already on float16
+            # Date 0707: It's necessary, only unecessary when load directly to gpu. Disable if need to run on cpu
 
         # Freeze CLIP weights
         clip_model.eval()
