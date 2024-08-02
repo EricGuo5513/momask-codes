@@ -15,6 +15,8 @@ If you find our code or paper helpful, please consider starring our repository a
 ```
 
 ## :postbox: News
+📢 **2024-08-02** --- The [WebUI demo 🤗](https://huggingface.co/spaces/MeYourHint/MoMask) is now running smoothly on a CPU. No GPU is required to use MoMask.
+
 📢 **2024-02-26** --- 🔥🔥🔥 Congrats! MoMask is accepted to CVPR 2024.
 
 📢 **2024-01-12** --- Now you can use MoMask in Blender as an add-on. Thanks to [@makeinufilm](https://twitter.com/makeinufilm) for sharing the [tutorial](https://medium.com/@makeinufilm/notes-on-how-to-set-up-the-momask-environment-and-how-to-use-blenderaddon-6563f1abdbfa).
