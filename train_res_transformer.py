@@ -31,7 +31,7 @@ def plot_t2m(data, save_dir, captions, m_lengths):
         joint = recover_from_ric(torch.from_numpy(joint_data).float(), opt.joints_num).numpy()
         save_path = pjoin(save_dir, '%02d.mp4'%i)
         # print(joint.shape)
-        plot_3d_motion(save_path, kinematic_chain, joint, title=caption, fps=20)
+        plot_3d_motion(save_path, kinematic_chain, joint, title=caption, fps=fps, radius=radius)
 
 def load_vq_model():
     opt_path = pjoin(opt.checkpoints_dir, opt.dataset_name, opt.vq_name, 'opt.txt')
