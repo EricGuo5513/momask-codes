@@ -5,7 +5,7 @@ mkdir t2m
 
 cd t2m 
 echo -e "Downloading pretrained models for HumanML3D dataset"
-gdown --fuzzy https://drive.google.com/file/d/1dtKP2xBk-UjG9o16MVfBJDmGNSI56Dch/view?usp=sharing
+gdown --fuzzy https://drive.google.com/file/d/1vXS7SHJBgWPt59wupQ5UUzhFObrnGkQ0/view?usp=sharing
 
 echo -e "Unzipping humanml3d_models.zip"
 unzip humanml3d_models.zip
@@ -18,7 +18,7 @@ mkdir kit
 cd kit
 
 echo -e "Downloading pretrained models for KIT-ML dataset"
-gdown --fuzzy https://drive.google.com/file/d/1MNMdUdn5QoO8UW1iwTcZ0QNaLSH4A6G9/view?usp=sharing
+gdown --fuzzy https://drive.google.com/file/d/1FapdHNkxPouasVM8MWgg1f6sd_4Lua2q/view?usp=sharing
 
 echo -e "Unzipping kit_models.zip"
 unzip kit_models.zip
