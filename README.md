@@ -75,7 +75,7 @@ bash prepare/download_glove.sh
 To address the download error related to gdown: "Cannot retrieve the public link of the file. You may need to change the permission to 'Anyone with the link', or have had many accesses". A potential solution is to run `pip install --upgrade --no-cache-dir gdown`, as suggested on https://github.com/wkentaro/gdown/issues/43. This should help resolve the issue.
 
 #### (Optional) Download Manually
-Visit [[Google Drive]](https://drive.google.com/drive/folders/1b3GnAbERH8jAoO5mdWgZhyxHB73n23sK?usp=drive_link) to download the models and evaluators mannually.
+Visit [[Google Drive]](https://drive.google.com/drive/folders/1sHajltuE2xgHh91H9pFpMAYAkHaX9o57?usp=drive_link) to download the models and evaluators mannually.
 
 ### 3. Get Data
 
@@ -147,7 +147,7 @@ We didn't tried other retargetting tools. Welcome to comment if you find others 
 
 ### Scene
 
-We use this [scene](https://drive.google.com/file/d/1lg62nugD7RTAIz0Q_YP2iZsxpUzzOkT1/view?usp=sharing) for animation.
+We use this [scene](https://drive.google.com/file/d/16SbrnG9JsJ2w7UwCFmh10PcBdl6HxlrA/view?usp=drive_link) for animation.
 
 
 </details>
