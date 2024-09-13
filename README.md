@@ -4,13 +4,12 @@
 
 If you find our code or paper helpful, please consider starring our repository and citing:
 ```
-@article{guo2023momask,
-      title={MoMask: Generative Masked Modeling of 3D Human Motions}, 
-      author={Chuan Guo and Yuxuan Mu and Muhammad Gohar Javed and Sen Wang and Li Cheng},
-      year={2023},
-      eprint={2312.00063},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{guo2024momask,
+  title={Momask: Generative masked modeling of 3d human motions},
+  author={Guo, Chuan and Mu, Yuxuan and Javed, Muhammad Gohar and Wang, Sen and Cheng, Li},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={1900--1910},
+  year={2024}
 }
 ```
 
