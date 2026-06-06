@@ -91,7 +91,7 @@ class MaskTransformerTrainer:
             self.scheduler.load_state_dict(checkpoint['scheduler']) # Scheduler
         except:
             print('Resume wo optimizer')
-        return checkpoint['ep'], checkpoint['total_it']
+        return checkpoint['ep'], checkpoint.get('total_it', 0)
 
     def train(self, train_loader, val_loader, eval_val_loader, eval_wrapper, plot_eval):
         self.t2m_transformer.to(self.device)
@@ -116,13 +116,16 @@ class MaskTransformerTrainer:
         print('Iters Per Epoch, Training: %04d, Validation: %03d' % (len(train_loader), len(val_loader)))
         logs = defaultdict(def_value, OrderedDict())
 
-        best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_mask_transformer(
-            self.opt.save_root, eval_val_loader, self.t2m_transformer, self.vq_model, self.logger, epoch,
-            best_fid=100, best_div=100,
-            best_top1=0, best_top2=0, best_top3=0,
-            best_matching=100, eval_wrapper=eval_wrapper,
-            plot_func=plot_eval, save_ckpt=False, save_anim=False
-        )
+        if eval_wrapper is not None:
+            best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_mask_transformer(
+                self.opt.save_root, eval_val_loader, self.t2m_transformer, self.vq_model, self.logger, epoch,
+                best_fid=100, best_div=100,
+                best_top1=0, best_top2=0, best_top3=0,
+                best_matching=100, eval_wrapper=eval_wrapper,
+                plot_func=plot_eval, save_ckpt=False, save_anim=False
+            )
+        else:
+            best_fid = best_div = best_top1 = best_top2 = best_top3 = best_matching = writer = None
         best_acc = 0.
 
         while epoch < self.opt.max_epoch:
@@ -177,12 +180,13 @@ class MaskTransformerTrainer:
                 self.save(pjoin(self.opt.model_dir, 'net_best_acc.tar'), epoch, it)
                 best_acc = np.mean(val_acc)
 
-            best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_mask_transformer(
-                self.opt.save_root, eval_val_loader, self.t2m_transformer, self.vq_model, self.logger, epoch, best_fid=best_fid,
-                best_div=best_div, best_top1=best_top1, best_top2=best_top2, best_top3=best_top3,
-                best_matching=best_matching, eval_wrapper=eval_wrapper,
-                plot_func=plot_eval, save_ckpt=True, save_anim=(epoch%self.opt.eval_every_e==0)
-            )
+            if eval_wrapper is not None:
+                best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_mask_transformer(
+                    self.opt.save_root, eval_val_loader, self.t2m_transformer, self.vq_model, self.logger, epoch, best_fid=best_fid,
+                    best_div=best_div, best_top1=best_top1, best_top2=best_top2, best_top3=best_top3,
+                    best_matching=best_matching, eval_wrapper=eval_wrapper,
+                    plot_func=plot_eval, save_ckpt=True, save_anim=(epoch%self.opt.eval_every_e==0)
+                )
 
 
 class ResidualTransformerTrainer:
@@ -259,7 +263,7 @@ class ResidualTransformerTrainer:
             self.scheduler.load_state_dict(checkpoint['scheduler']) # Scheduler
         except:
             print('Resume wo optimizer')
-        return checkpoint['ep'], checkpoint['total_it']
+        return checkpoint['ep'], checkpoint.get('total_it', 0)
 
     def train(self, train_loader, val_loader, eval_val_loader, eval_wrapper, plot_eval):
         self.res_transformer.to(self.device)
@@ -284,13 +288,16 @@ class ResidualTransformerTrainer:
         print('Iters Per Epoch, Training: %04d, Validation: %03d' % (len(train_loader), len(val_loader)))
         logs = defaultdict(def_value, OrderedDict())
 
-        best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_res_transformer(
-            self.opt.save_root, eval_val_loader, self.res_transformer, self.vq_model, self.logger, epoch,
-            best_fid=100, best_div=100,
-            best_top1=0, best_top2=0, best_top3=0,
-            best_matching=100, eval_wrapper=eval_wrapper,
-            plot_func=plot_eval, save_ckpt=False, save_anim=False
-        )
+        if eval_wrapper is not None:
+            best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_res_transformer(
+                self.opt.save_root, eval_val_loader, self.res_transformer, self.vq_model, self.logger, epoch,
+                best_fid=100, best_div=100,
+                best_top1=0, best_top2=0, best_top3=0,
+                best_matching=100, eval_wrapper=eval_wrapper,
+                plot_func=plot_eval, save_ckpt=False, save_anim=False
+            )
+        else:
+            best_fid = best_div = best_top1 = best_top2 = best_top3 = best_matching = writer = None
         best_loss = 100
         best_acc = 0
 
@@ -351,9 +358,10 @@ class ResidualTransformerTrainer:
                 # self.save(pjoin(self.opt.model_dir, 'net_best_loss.tar'), epoch, it)
                 best_acc = np.mean(val_acc)
 
-            best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_res_transformer(
-                self.opt.save_root, eval_val_loader, self.res_transformer, self.vq_model, self.logger, epoch, best_fid=best_fid,
-                best_div=best_div, best_top1=best_top1, best_top2=best_top2, best_top3=best_top3,
-                best_matching=best_matching, eval_wrapper=eval_wrapper,
-                plot_func=plot_eval, save_ckpt=True, save_anim=(epoch%self.opt.eval_every_e==0)
-            )
+            if eval_wrapper is not None:
+                best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_res_transformer(
+                    self.opt.save_root, eval_val_loader, self.res_transformer, self.vq_model, self.logger, epoch, best_fid=best_fid,
+                    best_div=best_div, best_top1=best_top1, best_top2=best_top2, best_top3=best_top3,
+                    best_matching=best_matching, eval_wrapper=eval_wrapper,
+                    plot_func=plot_eval, save_ckpt=True, save_anim=(epoch%self.opt.eval_every_e==0)
+                )

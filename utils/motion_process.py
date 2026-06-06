@@ -47,14 +47,14 @@ def extract_features(positions, feet_thre, n_raw_offsets, kinematic_chain, face_
         feet_l_z = (positions[1:, fid_l, 2] - positions[:-1, fid_l, 2]) ** 2
         #     feet_l_h = positions[:-1,fid_l,1]
         #     feet_l = (((feet_l_x + feet_l_y + feet_l_z) < velfactor) & (feet_l_h < heightfactor)).astype(np.float)
-        feet_l = ((feet_l_x + feet_l_y + feet_l_z) < velfactor).astype(np.float)
+        feet_l = ((feet_l_x + feet_l_y + feet_l_z) < velfactor).astype(float)
 
         feet_r_x = (positions[1:, fid_r, 0] - positions[:-1, fid_r, 0]) ** 2
         feet_r_y = (positions[1:, fid_r, 1] - positions[:-1, fid_r, 1]) ** 2
         feet_r_z = (positions[1:, fid_r, 2] - positions[:-1, fid_r, 2]) ** 2
         #     feet_r_h = positions[:-1,fid_r,1]
-        #     feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor) & (feet_r_h < heightfactor)).astype(np.float)
-        feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor)).astype(np.float)
+        #     feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor) & (feet_r_h < heightfactor)).astype(float)
+        feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor)).astype(float)
         return feet_l, feet_r
 
     #
@@ -233,14 +233,14 @@ def process_file(positions, feet_thre):
         feet_l_z = (positions[1:, fid_l, 2] - positions[:-1, fid_l, 2]) ** 2
         #     feet_l_h = positions[:-1,fid_l,1]
         #     feet_l = (((feet_l_x + feet_l_y + feet_l_z) < velfactor) & (feet_l_h < heightfactor)).astype(np.float)
-        feet_l = ((feet_l_x + feet_l_y + feet_l_z) < velfactor).astype(np.float)
+        feet_l = ((feet_l_x + feet_l_y + feet_l_z) < velfactor).astype(float)
 
         feet_r_x = (positions[1:, fid_r, 0] - positions[:-1, fid_r, 0]) ** 2
         feet_r_y = (positions[1:, fid_r, 1] - positions[:-1, fid_r, 1]) ** 2
         feet_r_z = (positions[1:, fid_r, 2] - positions[:-1, fid_r, 2]) ** 2
         #     feet_r_h = positions[:-1,fid_r,1]
-        #     feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor) & (feet_r_h < heightfactor)).astype(np.float)
-        feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor)).astype(np.float)
+        #     feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor) & (feet_r_h < heightfactor)).astype(float)
+        feet_r = (((feet_r_x + feet_r_y + feet_r_z) < velfactor)).astype(float)
         return feet_l, feet_r
     #
     feet_l, feet_r = foot_detect(positions, feet_thre)

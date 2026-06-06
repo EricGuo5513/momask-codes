@@ -104,11 +104,14 @@ class RVQTokenizerTrainer:
         logs = defaultdict(def_value, OrderedDict())
 
         # sys.exit()
-        best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_vqvae(
-            self.opt.model_dir, eval_val_loader, self.vq_model, self.logger, epoch, best_fid=1000,
-            best_div=100, best_top1=0,
-            best_top2=0, best_top3=0, best_matching=100,
-            eval_wrapper=eval_wrapper, save=False)
+        if eval_wrapper is not None:
+            best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_vqvae(
+                self.opt.model_dir, eval_val_loader, self.vq_model, self.logger, epoch, best_fid=1000,
+                best_div=100, best_top1=0,
+                best_top2=0, best_top3=0, best_matching=100,
+                eval_wrapper=eval_wrapper, save=False)
+        else:
+            best_fid = best_div = best_top1 = best_top2 = best_top3 = best_matching = writer = None
 
         while epoch < self.opt.max_epoch:
             self.vq_model.train()
@@ -191,10 +194,11 @@ class RVQTokenizerTrainer:
             #     self.save(pjoin(self.opt.model_dir, 'finest.tar'), epoch, it)
             #     print('Best Validation Model So Far!~')
 
-            best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_vqvae(
-                self.opt.model_dir, eval_val_loader, self.vq_model, self.logger, epoch, best_fid=best_fid,
-                best_div=best_div, best_top1=best_top1,
-                best_top2=best_top2, best_top3=best_top3, best_matching=best_matching, eval_wrapper=eval_wrapper)
+            if eval_wrapper is not None:
+                best_fid, best_div, best_top1, best_top2, best_top3, best_matching, writer = evaluation_vqvae(
+                    self.opt.model_dir, eval_val_loader, self.vq_model, self.logger, epoch, best_fid=best_fid,
+                    best_div=best_div, best_top1=best_top1,
+                    best_top2=best_top2, best_top3=best_top3, best_matching=best_matching, eval_wrapper=eval_wrapper)
 
 
             if epoch % self.opt.eval_every_e == 0:

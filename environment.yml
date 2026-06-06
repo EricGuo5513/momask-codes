@@ -1,4 +1,4 @@
-name: momask
+﻿name: momask
 channels:
   - pytorch
   - anaconda
@@ -6,7 +6,7 @@ channels:
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
-  - _openmp_mutex=5.1=1_gnu
+#  - _openmp_mutex=5.1=1_gnu
   - absl-py=1.4.0=pyhd8ed1ab_0
   - aiohttp=3.8.3=py37h5eee18b_0
   - aiosignal=1.2.0=pyhd3eb1b0_0

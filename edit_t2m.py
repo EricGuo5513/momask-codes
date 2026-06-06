@@ -1,4 +1,4 @@
-import os
+﻿import os
 from os.path import join as pjoin
 
 import torch
@@ -84,8 +84,16 @@ if __name__ == '__main__':
     def inv_transform(data):
         return data * std + mean
     ### We provided an example source motion (from 'new_joint_vecs') for editing. See './example_data/000612.mp4'###
-    motion = np.load(opt.source_motion)
+    motion_data = np.load(opt.source_motion)
+
+    motion = motion_data["motion"]
+
+    print("Loaded motion shape:", motion.shape)
+
     m_length = len(motion)
+
+    motion = motion.astype(np.float32)
+
     motion = (motion - mean) / std
     if max_motion_length > m_length:
         motion = np.concatenate([motion, np.zeros((max_motion_length - m_length, motion.shape[1])) ], axis=0)
@@ -101,8 +109,11 @@ if __name__ == '__main__':
     length_list.append(opt.motion_length)
     if opt.text_prompt == "":
         raise "Using an empty text prompt."
-
-    token_lens = torch.LongTensor(length_list) // 4
+    token_lens = torch.div(
+                torch.LongTensor(length_list) ,
+                4,
+                rounding_mode='floor'
+            )
     token_lens = token_lens.to(opt.device).long()
 
     m_length = token_lens * 4
@@ -131,8 +142,16 @@ if __name__ == '__main__':
             _start = int(_start*seq_len)
             _end = int(_end*seq_len)
         else:
-            _start //= 4
-            _end //= 4
+            _start = torch.div(
+                _start,
+                4,
+                rounding_mode='floor'
+            )
+            _end = torch.div(
+                _end,
+                4,
+                rounding_mode='floor'
+            )
         edit_mask[:, _start: _end] = 1
         print_captions = f'{print_captions} [{_start*4/20.}s - {_end*4/20.}s]'
     edit_mask = edit_mask.bool()
@@ -140,7 +159,7 @@ if __name__ == '__main__':
         print("-->Repeat %d"%r)
         with torch.no_grad():
             mids = t2m_transformer.edit(
-                                        captions, tokens[..., 0].clone(), m_length//4,
+                                        captions, tokens[..., 0].clone(), token_lens,
                                         timesteps=opt.time_steps,
                                         cond_scale=opt.cond_scale,
                                         temperature=opt.temperature,
@@ -150,7 +169,7 @@ if __name__ == '__main__':
                                         edit_mask=edit_mask.clone(),
                                         )
             if opt.use_res_model:
-                mids = res_model.generate(mids, captions, m_length//4, temperature=1, cond_scale=2)
+                mids = res_model.generate(mids, captions, token_lens, temperature=1, cond_scale=2)
             else:
                 mids.unsqueeze_(-1)
 

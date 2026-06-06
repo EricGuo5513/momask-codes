@@ -1,4 +1,7 @@
-*.pyc
+﻿*.pyc
 checkpoints
 editing
 generation
+.vs/*
+
+humanml3d_models/
