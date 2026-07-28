@@ -2,3 +2,5 @@
 checkpoints
 editing
 generation
+.venv
+.vscode

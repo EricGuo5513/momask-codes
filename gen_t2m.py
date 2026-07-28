@@ -243,6 +243,7 @@ if __name__ == '__main__':
             os.makedirs(joint_path, exist_ok=True)
 
             joint_data = joint_data[:m_length[k]]
+            np.save(pjoin(joint_path, "sample%d_repeat%d_len%d_263.npy"%(k, r, m_length[k])), joint_data)
             joint = recover_from_ric(torch.from_numpy(joint_data).float(), 22).numpy()
 
             bvh_path = pjoin(animation_path, "sample%d_repeat%d_len%d_ik.bvh"%(k, r, m_length[k]))
